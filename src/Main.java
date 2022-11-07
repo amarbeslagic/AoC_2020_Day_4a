@@ -12,15 +12,38 @@ public class Main {
 
         String [] listOfStrings = s.split("\n\r");
 
+        int numOfValidPassport = 0;
+
+        boolean byr = false;
+        boolean iyr = false;
+        boolean eyr = false;
+        boolean hgt = false;
+        boolean hcl = false;
+        boolean ecl = false;
+        boolean pid = false;
 
 
+        for(int i=0; i< listOfStrings.length; i++){
+            if(listOfStrings[i].contains("byr")) byr = true;
+            if(listOfStrings[i].contains("iyr")) iyr = true;
+            if(listOfStrings[i].contains("eyr")) eyr = true;
+            if(listOfStrings[i].contains("hgt")) hgt = true;
+            if(listOfStrings[i].contains("hcl")) hcl = true;
+            if(listOfStrings[i].contains("ecl")) ecl = true;
+            if(listOfStrings[i].contains("pid")) pid = true;
 
-        for (String st : listOfStrings) {
-            System.out.println(st);
-            System.out.println("---------");
+
+            if(byr == true && iyr == true && eyr == true && hgt == true && hcl == true && ecl == true && pid == true) numOfValidPassport++;
+
+            byr = false;
+            iyr = false;
+            eyr = false;
+            hgt = false;
+            hcl = false;
+            ecl = false;
+            pid = false;
         }
 
-        System.out.println(listOfStrings.length);
-       // System.out.println(s);
+        System.out.println(numOfValidPassport);
     }
 }
